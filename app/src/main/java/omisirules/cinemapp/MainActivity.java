@@ -12,12 +12,15 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -51,7 +54,7 @@ public class MainActivity extends Activity {
         pDialog.show();
 
         // changing action bar color
-        // getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b1b1b")));
+        //getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1b1b1b")));
 
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(url,
@@ -70,7 +73,10 @@ public class MainActivity extends Activity {
                                 movie.setTitle(obj.getString("titre"));
                                 movie.setThumbnailUrl(obj.getString("affiche"));
                                 movie.setYear(obj.getInt("annee"));
-                                movie.setGenre("genre");
+                                movie.setGenre(obj.getString("genre"));
+                                movie.setRealisateur(obj.getString("realisateur"));
+                                movie.setSynopsis(obj.getString("synopsis"));
+                                movie.setCategorie(obj.getString("categorie"));
                                 // adding movie to movies array
                                 movieList.add(movie);
 
@@ -90,6 +96,14 @@ public class MainActivity extends Activity {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
                 hidePDialog();
 
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent details = new Intent(MainActivity.this, Details.class);
+                startActivity(details);
             }
         });
 
