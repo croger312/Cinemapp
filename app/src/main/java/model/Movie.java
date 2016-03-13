@@ -1,13 +1,12 @@
 package model;
 
 public class Movie {
-    private String title, thumbnailUrl, genre, realisateur, categorie, synopsis;
-    private int year;
+    private String title, thumbnailUrl, genre, realisateur, categorie, synopsis, year, length;
 
     public Movie() {
     }
 
-    public Movie(String name, String thumbnailUrl, int year, double rating,
+    public Movie(String name, String thumbnailUrl, String year, String length,
                  String genre, String realisateur, String categorie, String synopsis) {
         this.title = name;
         this.thumbnailUrl = thumbnailUrl;
@@ -16,6 +15,7 @@ public class Movie {
         this.realisateur = realisateur;
         this.categorie = categorie;
         this.synopsis = synopsis;
+        this.length = length;
     }
 
     public String getTitle() {
@@ -34,11 +34,11 @@ public class Movie {
         this.thumbnailUrl = thumbnailUrl;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -72,4 +72,10 @@ public class Movie {
         this.synopsis = synopsis;
     }
 
+    public void setLength(String length){
+        this.length = length;
+    }
+    public String getLength(){
+        return length;
+    }
 }

@@ -72,11 +72,12 @@ public class MainActivity extends Activity {
                                 Movie movie = new Movie();
                                 movie.setTitle(obj.getString("titre"));
                                 movie.setThumbnailUrl(obj.getString("affiche"));
-                                movie.setYear(obj.getInt("annee"));
+                                movie.setYear(obj.getString("annee"));
                                 movie.setGenre(obj.getString("genre"));
                                 movie.setRealisateur(obj.getString("realisateur"));
                                 movie.setSynopsis(obj.getString("synopsis"));
                                 movie.setCategorie(obj.getString("categorie"));
+                                movie.setLength(obj.getString("duree"));
                                 // adding movie to movies array
                                 movieList.add(movie);
 
@@ -103,6 +104,15 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent details = new Intent(MainActivity.this, Details.class);
+                Movie m = movieList.get(position);
+                details.putExtra("titre", m.getTitle());
+                details.putExtra("synopsis", m.getSynopsis());
+                details.putExtra("affiche", m.getThumbnailUrl());
+                details.putExtra("date", m.getYear());
+                details.putExtra("realisateur", m.getRealisateur());
+                details.putExtra("categorie", m.getCategorie());
+                details.putExtra("genre", m.getGenre());
+                details.putExtra("duree", m.getLength());
                 startActivity(details);
             }
         });

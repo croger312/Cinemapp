@@ -1,10 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="omisirules.cinemapp.Details">
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dp" >
+
+    <!-- Affiche -->
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="180dp"
+        android:layout_height="220dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="12dp" />
+
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+
+    <!-- Realisateur -->
+    <TextView
+        android:id="@+id/realisateur"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/realisateur"
+        android:textSize="@dimen/realisateur"/>
+
+
+    <!-- Genre -->
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/realisateur"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/genre"
+        android:textSize="@dimen/genre" />
+
+
+    <!-- Release Year -->
+    <TextView
+        android:id="@+id/releaseYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/genre"
+        android:textColor="@color/year"
+        android:textSize="@dimen/year" />
+
+    <!-- Length -->
+    <TextView
+        android:id="@+id/length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/releaseYear"
+        android:textColor="@color/year"
+        android:textSize="@dimen/year" />
+
+    <!-- Synopsis -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/synopsis"
+        android:layout_below="@id/thumbnail"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

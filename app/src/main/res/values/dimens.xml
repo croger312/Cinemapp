@@ -6,4 +6,6 @@
     <dimen name="title">17dp</dimen>
     <dimen name="genre">13dip</dimen>
     <dimen name="year">12dip</dimen>
+    <dimen name="realisateur">14dip</dimen>
+    <dimen name="duree">12dip</dimen>
 </resources>
