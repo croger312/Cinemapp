@@ -1,13 +1,18 @@
 package model;
 
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+
 public class Movie {
     private String title, thumbnailUrl, genre, realisateur, categorie, synopsis, year, length;
+    private JSONArray media;
 
     public Movie() {
     }
 
     public Movie(String name, String thumbnailUrl, String year, String length,
-                 String genre, String realisateur, String categorie, String synopsis) {
+                 String genre, String realisateur, String categorie, String synopsis, JSONArray media) {
         this.title = name;
         this.thumbnailUrl = thumbnailUrl;
         this.year = year;
@@ -16,6 +21,7 @@ public class Movie {
         this.categorie = categorie;
         this.synopsis = synopsis;
         this.length = length;
+        this.media =  media;
     }
 
     public String getTitle() {
@@ -77,5 +83,12 @@ public class Movie {
     }
     public String getLength(){
         return length;
+    }
+
+    public JSONArray getMedia(){
+        return media;
+    }
+    public void setMedia(JSONArray media){
+        this.media = media;
     }
 }

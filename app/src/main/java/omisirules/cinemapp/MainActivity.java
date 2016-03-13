@@ -78,6 +78,7 @@ public class MainActivity extends Activity {
                                 movie.setSynopsis(obj.getString("synopsis"));
                                 movie.setCategorie(obj.getString("categorie"));
                                 movie.setLength(obj.getString("duree"));
+                                movie.setMedia(obj.getJSONArray("medias"));
                                 // adding movie to movies array
                                 movieList.add(movie);
 
@@ -86,6 +87,8 @@ public class MainActivity extends Activity {
                             }
 
                         }
+
+
 
                         // notifying list adapter about data changes
                         // so that it renders the list view with updated data
@@ -113,6 +116,7 @@ public class MainActivity extends Activity {
                 details.putExtra("categorie", m.getCategorie());
                 details.putExtra("genre", m.getGenre());
                 details.putExtra("duree", m.getLength());
+                details.putExtra("media", m.getMedia().toString());
                 startActivity(details);
             }
         });
